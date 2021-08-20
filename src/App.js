@@ -1,39 +1,39 @@
+import React, {Component} from 'react';
+
 import classes from './App.module.css'
-import ProductData from './ProductData';
-import ProductPreview from './ProductPreview';
+import ProductData from './Utils/ProductData';
+import ProductDetails from './ProductDetails/ProductDetails';
+import ProductPreview from './ProductPreview/ProductPreview';
+import TopBar from './TopBar/TopBar';
 
-function App() {
- 
-  return (
-    <div className="App">
-      <header className={classes.topNavbar}>
-        <img src="https://i0.wp.com/zeevector.com/wp-content/uploads/LOGO/Amazon-India-Logo-PNG-White2.png?resize=561%2C160&ssl=1" alt="Amazon logo" />
-      </header>
+class App extends Component{
+  state ={
+    productData: ProductData,
+    currentPreviewImagePos: 0,
+    currentSelectedFeature: 0,
+  }
 
-      <div className={classes.MainContainer}> 
-         <ProductPreview />
-       <div className={classes.productData}>
-         <h1 className={classes.productTitle}>{ProductData.title}</h1>
-         <p className={classes.productDescription}>{ProductData.description}</p>
-
-         <h3 className={classes.sectionHeading}>Select Color</h3>
-         <div>
-           <img className={[classes.productImage, classes.selectedProductImage].join(' ')} src="https://imgur.com/iOeUBV7.png" alt="Black Color Watch" />
-           <img className={classes.productImage} src="https://imgur.com/PTgQlim.png" alt="Red Color Watch" />
-           <img className={classes.productImage} src="https://imgur.com/Mplj1YR.png" alt="Blue Color Watch" />
-           <img className={classes.productImage} src="https://imgur.com/xSIK4M8.png" alt="Purple Color Watch" />
-         </div>
-
-         <h3 className={classes.sectionHeading}>Features</h3>
-         <div>
-            <button className={[classes.featureItem, classes.selectedFeatureItem].join(' ')}>Time</button>
-            <button className={classes.featureItem}>Heart Rate</button>
-         </div>
-         <button className={classes.primaryButton}>Buy Now</button>
+onColorOptionClick = (pos)=>{
+      this.setState({currentPreviewImagePos : pos})
+  }
+onfeatureItemClick=(pos)=>{
+  this.setState({currentSelectedFeature: pos});
+}
+ render(){
+   return (
+     <div className="App">
+      <TopBar />
+       <div className={classes.MainContainer}>
+       <div className={classes.ProductPreview}>
+          <ProductPreview currentPreviewImage={this.state.productData.colorOptions[this.state.currentPreviewImagePos].imageUrl} currentSelectedFeature={this.state.currentSelectedFeature}  />
+          </div> 
+          <div className={classes.productData}>
+           <ProductDetails data={this.state.productData} onColorOptionClick={this.onColorOptionClick} currentPreviewImagePos={this.state.currentPreviewImagePos} onfeatureItemClick={this.onfeatureItemClick} currentSelectedFeature={this.currentSelectedFeature} />
        </div>
-      </div>
-    </div>
-  );
+       </div>
+     </div>
+   );
+ }
 }
 
 export default App;
