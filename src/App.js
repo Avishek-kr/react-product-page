@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src="https://logos-world.net/wp-content/uploads/2020/04/Amazon-Logo.png" alt="Amazon logo" />
+        <img src="https://sybergaming.com/wp-content/uploads/2019/03/amazon-logo.png" alt="Amazon logo" />
       </header>
     </div>
   );
