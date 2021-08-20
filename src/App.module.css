@@ -1,0 +1,138 @@
+*{
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+.topNavbar {
+  background-color: #282c34;
+  padding: 24px 48px 12px;
+  text-align: center;
+  width: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.topNavbar > img{
+  width: 100px;
+}
+
+.MainContainer{
+  padding:4%  12%;
+  margin-top: 32px;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.ProductPreview{
+  width: 50%;
+  position: relative;
+}
+
+.ProductPreview > img{
+  width: 100%;
+}
+
+.timeSection{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 600;
+}
+.heartBeatSection{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 600;
+}
+.heartBeatSection>i{
+  color: red;
+  margin-bottom: 10px;
+  animation: beat 0.5s infinite;
+}
+@keyframes beat{
+  0%{
+    transform: scale(1,1);
+  }
+  50%{
+    transform: scale(1.2, 1.2);
+  }
+  100%{
+    transform: scale(1,1);
+  }
+}
+.productData{
+  width: 50%;
+}
+
+.productTitle{
+  font-size: 48px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.productDescription{
+  font-size: 20px;
+  color: rgba(0,0,0,0.8);
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.sectionHeading{
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+.productImage{
+  width: 100%;
+  max-width: 80px;
+
+  border: 2px solid transparent;
+  border-radius: 8px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.selectedProductImage{
+  border: 2px solid teal;
+}
+
+.featureItem{
+  background-color: gainsboro;
+  border-radius: 8px;
+  border: 0;
+  text-align: center;
+  margin-right: 12px;
+  cursor: pointer;
+  box-sizing: content-box;
+
+  padding: 12px 24px;
+  font-weight: 600;
+}
+
+.selectedFeatureItem{
+  color: #ffffff;
+  background-color: gray;
+}
+
+.primaryButton{
+  color: #ffffff;
+  background-color: teal;
+  font-size: 20px;
+  border-radius: 8px;
+  border: 0;
+  padding: 12px 24px;
+  margin-top: 36px;
+}
